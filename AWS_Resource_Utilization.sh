@@ -26,14 +26,12 @@ do
      fi
      count=0
 done >>status.txt
+
 MESSAGE=`cat status.txt|grep Instance_Id|xargs`
-#MESSAGE=$( echo ${MESSAGE} | sed 's/"/\"/g' | sed "s/'/\'/g" )
-#echo ${MESSAGE}
 COLOR="ff0000"
 TITLE="CLOUD RESOURCE MONITORING"
-#MESSAGE1="My Resource Utilization"
 JSON="{\"title\": \"${TITLE}\", \"themeColor\": \"${COLOR}\", \"text\": \"${MESSAGE}\" }"
 
 # Post to Microsoft Teams.
-WEBHOOK_URL="https://outlook.office.com/webhook/d4ba9c0b-24a9-4104-a816-822d1c42f6e9@e9cb3c80-4156-4c39-a7fe-68fe427a3d46/IncomingWebhook/65b17a2f5ed3493b84dbfd6409a0e6ea/4983d14b-244b-469a-8c43-700fab5be63e"
+WEBHOOK_URL="https://outlook.office.com/webhook/xxxxx-yyyy-1234-5678-zzzzzzzz@a1b2c3d4-1234-5678-9087-09876a54321/IncomingWebhook/a1b2c3d4e5f6g7h8i9j0/123456a-1234-5678-1a23-a1b2c3d4e5f6"
 curl -H "Content-Type: application/json" -d "${JSON}" "${WEBHOOK_URL}"
