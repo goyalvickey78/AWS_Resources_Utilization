@@ -1,7 +1,8 @@
 >status.txt
 endTime=`date +%Y-%m-%dT%H:%M:%SZ`
 yesterday=`expr \`date +%s\` - 86400`
-startTime=`date -r $yesterday '+%Y-%m-%dT%H:%M:%SZ'`
+#startTime=`date -r $yesterday '+%Y-%m-%dT%H:%M:%SZ'`
+startTime=`date --date="yesterday" +"%Y-%m-%dT%H:%M:%SZ"`
 minCPUTheshold=2
 maxCPUTheshold=70
 for region in `aws ec2 describe-regions --output text | cut -f4`
